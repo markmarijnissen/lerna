@@ -58,6 +58,7 @@ export default class NpmUtilities {
 
       // Construct a basic fake package.json with just the deps we need to install.
       const tempJson = {
+        name: path.basename(directory),
         dependencies: dependencies.reduce((deps, dep) => {
           const [pkg, version] = splitVersion(dep);
           deps[pkg] = version || "*";
